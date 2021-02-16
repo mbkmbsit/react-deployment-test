@@ -1,0 +1,282 @@
+/*
+* It's ok to have a few of styles right?
+* Style inspired by: https://dribbble.com/shots/3440657--3-Invisible-series-TO-DO-app
+*/
+
+body {
+    background-color: #E8ECF4;
+    
+    &:after {
+      content: 'Made with ❤️ by Adiel Hercules';
+      position: absolute;
+      top: 0;
+      right: 0;
+      padding: 10px;
+      background-color: #3F436B;
+      color: #fff;
+      opacity: 0.6;
+    }
+  }
+  
+  $gray-text: #C3C5D0;
+  $gray2-text: #BFC0CC;
+  $blue-color: #00D6F1;
+  $orange-color: #FFBC00;
+  $red-color: #FF4D00;
+  
+  .todo-app {
+    margin: 10px auto;
+    width: 100%;
+    max-width: 400px;
+    padding: 30px 30px 30px;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.2);
+    
+    h2 {
+      padding: 0;
+      margin: 0;
+      color: #747E80;
+      font-size: 24px;
+    }
+  }
+  
+  .filter-tabs {
+    .filter {
+      display: inline-block;
+      margin-right: 10px;
+      height: 25px;
+      line-height: 25px;
+      padding-bottom: 5px;
+      margin-top: 10px;
+      color: $gray-text;
+      text-decoration: none;
+      font-size: 12px;
+      text-transform: uppercase;
+      border-bottom: 2px solid transparent;
+      
+      transition: color 0.2s, border-color 0.2s;
+      
+      span {
+        display: inline-block;
+        vertical-align: middle;
+        min-width: 15px;
+        height: 20px;
+        line-height: 20px;
+        padding: 0 5px;
+        background-color: $gray-text;
+        color: #fff;
+        text-align: center;
+        border-radius: 13px;
+        font-size: 10px;
+        font-weight: 600;
+        
+        transition: background-color 0.2s;
+      }
+  
+      &.disabled {
+        color: $blue-color;
+        text-decoration: none;
+        pointer-events: none;
+        border-bottom-color: $blue-color;
+        
+        span {
+          background-color: $blue-color;
+        }
+      }
+    }
+  }
+  
+  .item-form {
+    margin-bottom: 10px;
+    margin-top: 20px;
+    
+    label {
+      color: $gray2-text;
+      display: block;
+    }
+    
+    input {
+      display: block;
+      margin-top: 5px;
+      width: 100%;
+      padding: 15px;
+      background-color: #f3f2f5;
+      color: #A6A8BA;
+      border: none;
+      border-radius: 20px;
+      box-sizing: border-box;
+      box-shadow: 0px 0px 0px 0px $blue-color;
+      outline: none;
+      
+      transition: box-shadow 0.3s;
+      
+      &:focus {
+        box-shadow: 0px 0px 0px 3px $blue-color;
+      }
+    }
+  }
+  
+  .item-list {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+    
+    .placeholder {
+      padding: 10px 0;
+      color: $gray-text;
+    }
+    
+    .item {
+      position: relative;
+      padding: 5px 30px;
+      margin: 0 -30px;
+      background-color: #fff;
+      
+      label {
+        position: absolute;
+      }
+      
+      input[type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+        
+        & + .checkbox {
+          position: relative;
+          display: inline-block;
+          width: 25px;
+          height: 25px;
+          margin-right: 10px;
+          vertical-align: middle;
+          border: 2px solid $gray-text;
+          border-radius: 50%;
+          
+          transition: border-color 0.3s;
+          
+          &:after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            background-color: transparent;
+            border-radius: 50%;
+            
+            transition: background-color 0.3s;
+          }
+        }
+        
+        &:checked + .checkbox {
+          border-color: $blue-color;
+          
+          &:after {
+            background-color: $blue-color;
+          }
+        }
+      }
+      
+      button {
+        position: absolute;
+        right: 30px;
+        color: transparent;
+        background-color: $orange-color;
+        border: none;
+        width: 20px;
+        height: 20px;
+        top: 50%;
+        margin-top: -10px;
+        transform: rotate(45deg);
+        cursor: pointer;
+        padding: 0;
+        
+        transition: 0.4s;
+        
+        &:hover,
+        &:focus {
+          background-color: $red-color;
+          transform: rotate(135deg);
+        }
+      }
+      
+      .text-wrapper {
+        position: relative;
+        display: block;
+        margin-left: 45px;
+        margin-right: 45px;
+        
+        span, s {
+          display: block;
+          line-height: 25px;
+          color: #4C565E;
+          padding: 2px 0;
+          max-height: 100px;
+          overflow: hidden;
+          
+          transition: opacity 0.3s, max-height 0.2s;
+        }
+        
+        input {
+          position: absolute;
+          padding: 5px 0;
+          top: 0;
+          left: 0px;
+          width: 100%;
+          border: none;
+          background-color: transparent;
+          opacity: 0;
+          z-index: -1;
+          color: #4C565E;
+          outline: none;
+          
+          transition: opacity 0s;
+        }
+      }
+      
+      &.editing {
+        background-color: #F9E491;
+        transition: background-color 0.3s;
+        
+        .text-wrapper {
+          input {
+            opacity: 1;
+            z-index: 1;
+          }
+  
+          s, span {
+            opacity: 0;
+            max-height: 25px;
+          }
+        }
+      }
+      
+    }
+  }
+  
+  .footer-actions {
+    a {
+      display: inline-block;
+      background-color: $red-color;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 12px;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 0px 0px $red-color;
+      
+      transition: opacity 0.2s, box-shadow 0.3s;
+      
+      &:hover,
+      &:focus {
+        opacity: 0.8;
+        box-shadow: 0px 0px 0px 2px $red-color;
+      }
+      
+      &.disabled {
+        opacity: 0.4;
+        cursor: default;
+      }
+    }
+  }

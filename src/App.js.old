@@ -1,0 +1,66 @@
+import logo from './logo.svg';
+// import './App.css';
+import { Route, BrowserRouter as Router, Switch, Redirect } from 'react-router-dom';
+import Sidenavbar from './components/Sidenavbar';
+// import Home from './pages/Home';
+// import Products from './pages/Products';
+import Movies from './components/movies/movies1';
+// import ChatTest from './components/chat_test';
+// import ChatRoom from './components/chatApp';
+// import TodoApps from './components/todo/todos.jsx';
+import React, { Component, Fragment } from 'react';
+// import Color from './components/temp/newColorChange';
+// import './components/todo/todos.module.scss';
+import Navbar from './components/routing/navbar';
+import Home from './components/routing/home';
+import Products from './components/routing/products';
+import ProductDetails from './components/routing/productDetails';
+import Posts from './components/routing/posts';
+import Dashboard from './components/routing/dashboard';
+import NotFound from './components/routing/notFound';
+import Routing from './components/routing';
+function App() {
+	return (
+		<Fragment>
+			{/* <div className="App"> */}
+			{/* <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header> */}
+
+			{/* <Router>
+				<Sidenavbar />
+				<Switch>
+					<Route path="/" exact component={Home} />
+					<Route path="/products" exact component={Products} />
+					</Switch>
+			</Router> */}
+<Routing/>
+			
+			{/* 			
+			<main className="container">
+				<Movies />
+			</main> */}
+
+			{/* <ChatRoom /> */}
+			{/* <ChatTest /> */}
+			{/* <main className="container">
+			</main> */}
+			{/* </div> */}
+			{/* <TodoApps /> */}
+			{/* <Color /> */}
+		</Fragment>
+	);
+}
+
+export default App;

@@ -1,0 +1,6 @@
+const INCREMENT = 'INCREMENT';
+const DECREMENT = 'DECREMENT';
+const ADD = 'ADD';
+const SUB = 'SUB';
+const STORE_RESULT = 'STORE_RESULT';
+const DELETE_RESULT = 'DELETE_RESULT';
